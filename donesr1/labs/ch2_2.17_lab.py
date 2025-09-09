@@ -1,0 +1,10 @@
+import math
+x = float(input())
+y = float(input())
+z = float(input())
+x_power = math.pow(x,z)
+x_y_power = math.pow(y,z)
+z_power = math.pow(x_y_power,x)
+abs_x = math.fabs(x-y)
+sqrt = math.sqrt(math.fabs(x_power))
+print(f"{x_power:.2f} {z_power:.2f} {abs_x:.2f} {sqrt:.2f}")
