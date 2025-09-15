@@ -532,4 +532,3 @@ print(0b100000000) # Output: 256 (binary 100000000 is decimal 256)
 
 
 
-
