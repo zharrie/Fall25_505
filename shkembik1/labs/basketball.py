@@ -1,3 +1,4 @@
+# This program calculates the total number of runs scored in three baseball games.
 dodgers_score = int(input())
 yankees_score = int(input())
 cubs_score = int(input())
