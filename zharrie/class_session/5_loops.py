@@ -183,4 +183,229 @@ for i in range(0, 10, 2):  # For loop iterating over range from 0 to 9 with step
 for i in range(5, 0, -1):  # For loop iterating over range from 5 to 1 with step of -1
     print(i)  # Output the current integer in the range 
 
-# The remaining topics will be covered on Thursday
+###############################################################
+# Practice Problems
+###############################################################
+# 1. Write a for loop that prints all the even numbers from 2 to 20.
+# 2. Write a while loop that calculates the sum of all integers from 1 to 100.
+# 3. Write a for loop that iterates over a string and prints each character on a new line.
+
+
+# While vs. for loops
+# A while loop is used when the number of iterations is not predetermined and depends on a condition being met.
+# A for loop is used when the number of iterations is known or when iterating over a sequence or collection.
+# A while loop continues until a specified condition is False, while a for loop iterates over each item in a sequence or range.
+# A while loop may require manual management of the loop variable, while a for loop automatically handles the loop variable.
+# A while loop can potentially lead to infinite loops if the condition is not properly managed, while a for loop typically has a defined end based on the sequence or range.
+
+# Nested loops
+
+# A nested loop is a loop that appears as part of the body of another loop. 
+# The nested loops are commonly referred to as the outer loop and inner loop.
+
+"""
+Program to print all two-letter domain names.
+
+Note that ord() and chr() convert between text and the ASCII (https://www.asciitable.com/) or Unicode encoding:
+-  ord("a") yields the encoded value of "a", the number 97.
+-  ord("a") + 1 adds 1 to the encoded value of "a", giving 98.
+-  chr(ord("a") + 1) converts 98 back into a letter, producing "b"
+"""
+print("Two-letter domain names:")
+
+letter1 = "a"
+letter2 = "?"
+while letter1 <= "z":  # Outer loop
+    letter2 = "a"
+    while letter2 <= "z":  # Inner loop
+        print(f"{letter1}{letter2}.com")
+        letter2 = chr(ord(letter2) + 1)
+    letter1 = chr(ord(letter1) + 1)
+
+# How many times does the inner loop execute?
+count = 0
+for i in range(4):
+   for j in range(3):
+      count = count + 1
+print(count)
+
+# Developing programs incrementally
+"""
+As programs increase in complexity, a programmer's development process becomes more important. 
+A programmer should not write the entire program and then run the program hoping the program works. 
+If the program does not work on the first try, debugging can be extra difficult because the program may have many bugs.
+"""
+
+#Example: Phone number program
+"""
+The following program allows the user to enter a phone number that includes letters, which appear on phone keypads along with numbers, and are used by companies as a marketing tactic (e.g., 1-555-HOLIDAY). 
+The program then outputs the phone number using numbers only.
+"""
+
+# First version
+user_input = input("Enter phone number: ")
+
+index = 0
+for character in user_input:
+    print(f"Element {index} is: {character}")
+    index += 1
+
+# Second version
+user_input = input("Enter phone number: ")
+phone_number = ""
+
+for character in user_input:
+    if "0" <= character <= "9":
+        phone_number += character
+    else:
+        #FIXME: Add elif branches for letters and hyphen
+        phone_number += "?"
+
+print(f"Numbers only: {phone_number}")
+
+# Third version
+user_input = input("Enter phone number: ")
+phone_number = ""
+
+for character in user_input:
+    if ("0" <= character <= "9") or (character == "-"):
+        phone_number += character
+    elif ("a" <= character <= "c") or ("A" <= character <= "C"):
+        phone_number += "2"
+    #FIXME: Add remaining elif branches
+    else:
+        phone_number += "?"
+
+print(f"Numbers only: {phone_number}")
+
+# Final version
+# Complete in class
+
+# Break and Continue
+"""
+A break statement in a loop causes the loop to exit immediately. 
+A break statement can sometimes yield a loop that is easier to understand.
+
+A continue statement in a loop causes an immediate jump to the while or for loop header statement. 
+A continue statement can improve the readability of a loop. 
+
+Break and continue statements can be helpful to avoid excessive indenting/nesting within a loop. 
+However, because someone reading a program could easily overlook a break or continue statement, such statements should be used only when their use is clear to the reader.
+"""
+# Break Example
+for num in range(10):
+    if num == 5:
+        break  # Exit the loop when num is 5
+    print(num)  # This will print numbers 0 to 4
+# Continue Example
+for num in range(10):
+    if num % 2 == 0:
+        continue  # Skip even numbers
+    print(num)  # This will print only odd numbers from 0 to 9
+# Combined Break and Continue Example
+for num in range(10):
+    if num == 5:
+        break  # Exit the loop when num is 5
+    if num % 2 == 0:
+        continue  # Skip even numbers
+    print(num)  # This will print only odd numbers less than 5
+
+# Loop Else
+"""
+A loop may include an else clause that executes only if the loop terminates normally and doesn't use a break statement. 
+Thus, the complete forms of while and for loops are:
+
+while expression:  # Loop expression
+    # Loop body: Sub-statements to execute if 
+    # the expression evaluated to True
+else:
+    # Else body: Sub-statements to execute once 
+    # if the expression evaluated to False
+
+# Statements to execute after the loop
+
+for name in iterable:
+    # Loop body: Sub-statements to execute 
+    # for each item in iterable
+else:
+    # Else body: Sub-statements to execute 
+    # once when loop completes
+
+# Statements to execute after the loop
+
+The else executes when the while condition becomes False, or when the for loop has iterated over all items in the iterable.
+Won't execute if the loop is terminated by a break!
+Is useful for detecting whether the loop completed normally or was interrupted.
+"""
+# Examples
+# Example 1: Searching for an item in a list
+for item in items:
+    if item == target:
+        print("Found it!")
+        break
+else:
+    print("Item not found") # Only runs if we didn't find the item
+
+# Example 2: Password attempts
+for password_attempt in attempts:
+    if password_attempt == correct_password:
+        print("Access granted")
+        break
+else:
+    print("Account locked")  # Only runs if all attempts failed
+
+# Example 3: Countdown with successful completion
+count = 3
+while count > 0:
+    print(count)
+    count -= 1
+else:
+    print("Liftoff!")  # Executes when countdown completes
+
+# Example 4: Password attempts with limit
+attempts_left = 3
+correct_password = "secret123"
+
+while attempts_left > 0:
+    password = input("Enter password: ")
+    if password == correct_password:
+        print("Access granted!")
+        break
+    attempts_left -= 1
+else:
+    print("Account locked - no attempts remaining")  # Executes if all attempts fail
+
+
+# The enumerate() function
+"""
+A programmer commonly requires both the current position index and corresponding element value when iterating over a sequence. 
+The enumerate() function simplifies this task by returning both the index and the value during each iteration of a for loop.
+The enumerate() function takes a sequence (like a list or string) and returns an enumerate object, which produces pairs of index and value for each element in the sequence.
+The syntax of the enumerate() function is:
+enumerate(sequence, start=0)
+- sequence: The sequence (like a list, tuple, or string) to be enumerated
+- start: An optional parameter that specifies the starting index (default is 0)
+The enumerate() function is often used in for loops to get both the index and the value of each element in the sequence.
+Unpacking is a process that performs multiple assignments at once, binding comma-separated names on the left to the elements of a sequence on the right. Ex: num1, num2 = [350, 400] is equivalent to the statements num1 = 350 and num2 = 400.
+"""
+# Example 1: Using enumerate with a list
+fruits = ["apple", "banana", "cherry"]
+for index, fruit in enumerate(fruits):
+    print(f"Index: {index}, Fruit: {fruit}")    
+# Example 2: Using enumerate with a string
+word = "hello"
+for index, char in enumerate(word):
+    print(f"Index: {index}, Character: {char}")
+# Example 3: Using enumerate with a custom start index
+colors = ["red", "green", "blue"]
+for index, color in enumerate(colors, start=1):
+    print(f"Position: {index}, Color: {color}")
+# Example 4: Using enumerate in a practical scenario
+students = ["Alice", "Bob", "Charlie"]
+for roll_number, student in enumerate(students, start=1):
+    print(f"Roll Number: {roll_number}, Student Name: {student}")   
+# Example 5: Using enumerate to modify a list
+numbers = [10, 20, 30, 40]
+for index, value in enumerate(numbers):
+    numbers[index] = value * 2  # Double each number in the list
+print(numbers)  # Output: [20, 40, 60, 80]
