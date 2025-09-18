@@ -324,7 +324,6 @@ else:
 
 # Statements to execute after the loop
 
-
 for name in iterable:
     # Loop body: Sub-statements to execute 
     # for each item in iterable
