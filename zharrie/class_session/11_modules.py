@@ -1,37 +1,62 @@
 """
 Module basics
-The interactive Python interpreter provides the simplest way to run Python code. However, once the interpreter is closed, all defined variables, functions, and classes are lost. To preserve and reuse code, programmers usually write Python code in a file and pass that file to the interpreter. Such a file is called a script.
-In practice, programmers often repeat the same functions across different scripts, or they end up with overly long, hard-to-maintain code. To address this, Python provides modules—files containing reusable Python code that can be imported into scripts, other modules, or the interpreter itself. Importing a module means executing its code and making its definitions available to the importing program.
-A module file must have a .py extension for the interpreter to recognize it. The module name used in an import statement should match the filename without .py. For example, if the file is HTTPServer.py, the correct statement is import HTTPServer. Import statements are case-sensitive: import ABC and import aBc refer to different modules.
-The interpreter also needs to know where to locate the module. The simplest approach is to place modules in the same directory as the running script, though Python can search the system more broadly. Later topics explain how this search mechanism works in detail.
-It is considered best practice to place all import statements at the top of a file. This makes dependencies—external modules a program relies on—easy for readers to identify.
+
+The interactive Python interpreter provides the simplest way to run Python code. 
+However, once the interpreter is closed, all defined variables, functions, and classes are lost. 
+To preserve and reuse code, programmers usually write Python code in a file and pass that file to the interpreter. 
+Such a file is called a script.
+
+In practice, programmers often repeat the same functions across different scripts, or they end up with overly long, hard-to-maintain code. 
+To address this, Python provides modules—files containing reusable Python code that can be imported into scripts, other modules, or the interpreter itself. 
+Importing a module means executing its code and making its definitions available to the importing program.
+A module file must have a .py extension for the interpreter to recognize it. 
+The module name used in an import statement should match the filename without .py. 
+
+For example, if the file is HTTPServer.py, the correct statement is import HTTPServer. 
+Import statements are case-sensitive: import ABC and import aBc refer to different modules.
+The interpreter also needs to know where to locate the module. The simplest approach is to place modules in the same directory as the running script, though Python can search the system more broadly. 
+It is considered best practice to place all import statements at the top of a file. 
+This makes dependencies—external modules a program relies on—easy for readers to identify.
+
 Importing a module
 When Python encounters an import statement, it follows this process:
-It checks whether the module has already been imported.
-If yes, the existing module object is reused.
-If not, a new module object is created and added to sys.modules.
+- It checks whether the module has already been imported.
+- If yes, the existing module object is reused.
+- If not, a new module object is created and added to sys.modules.
+
 The module’s code is executed within this new module object’s namespace.
-The sys.modules dictionary, part of Python’s standard sys module, keeps track of all loaded modules. A module object is essentially a namespace containing all definitions from the module. If a module is already in sys.modules, the interpreter simply reuses it; otherwise, it executes the module code and stores the resulting namespace.
-For example, executing import HTTPServer creates a new module object for HTTPServer and runs its code. If that code itself contains import webpage, Python checks whether webpage is already loaded. If not, a new module object is created, added to sys.modules, and its code is executed. Any definitions made inside webpage are stored in its namespace. Once webpage finishes loading, execution of HTTPServer continues, adding its own definitions. If the importing script later uses import webpage, Python will reuse the already-loaded module rather than executing it again.
+The sys.modules dictionary, part of Python’s standard sys module, keeps track of all loaded modules. 
+A module object is essentially a namespace containing all definitions from the module. 
+If a module is already in sys.modules, the interpreter simply reuses it; otherwise, it executes the module code and stores the resulting namespace.
+For example, executing import HTTPServer creates a new module object for HTTPServer and runs its code. 
+If that code itself contains import webpage, Python checks whether webpage is already loaded. If not, a new module object is created, added to sys.modules, and its code is executed. 
+Any definitions made inside webpage are stored in its namespace. Once webpage finishes loading, execution of HTTPServer continues, adding its own definitions. 
+If the importing script later uses import webpage, Python will reuse the already-loaded module rather than executing it again.
 """
 
 """
 How Python Finds and Imports Modules
 When an import statement is executed, Python begins searching for the corresponding file. The search order is as follows:
-Built-in modules – Python first checks if the requested name matches a built-in module, which comes preinstalled (e.g., sys, time, math). If a match exists, the built-in module is loaded.
+- Built-in modules – Python first checks if the requested name matches a built-in module, which comes preinstalled (e.g., sys, time, math). 
+If a match exists, the built-in module is loaded.
 Caution: if you name your own module with the same name as a built-in one, the built-in takes precedence.
-Directories in sys.path – If no built-in match is found, Python searches the directories listed in sys.path, a variable defined in the sys module. 
-
+- Directories in sys.path – If no built-in match is found, Python searches the directories listed in sys.path, a variable defined in the sys module. 
 By default, sys.path includes:
 - The directory containing the executing script
 - Directories specified in the environment variable PYTHONPATH
 - The directory where Python itself is installed
 
-For small programs, placing modules in the same directory as the script is sufficient. Larger projects often involve many modules or rely on third-party packages located elsewhere. In such cases, developers configure the PYTHONPATH environment variable so Python knows where to look. Environment variables are stored by the operating system and available to all programs. On Windows, for example, PYTHONPATH can be set permanently via the control panel or temporarily in a terminal with:
+For small programs, placing modules in the same directory as the script is sufficient. 
+Larger projects often involve many modules or rely on third-party packages located elsewhere. 
+In such cases, developers configure the PYTHONPATH environment variable so Python knows where to look. 
+Environment variables are stored by the operating system and available to all programs. 
+On Windows, for example, PYTHONPATH can be set permanently via the control panel or temporarily in a terminal with:
 set PYTHONPATH="c:\dir1;c:\other\directory"
+export MY_VARIABLE="value"
 
 import module vs. from module import name
-A normal import statement (e.g., import HTTPServer) loads the module and makes it accessible as a single object. Names are then accessed using dot notation, such as HTTPServer.address.
+A normal import statement (e.g., import HTTPServer) loads the module and makes it accessible as a single object. 
+Names are then accessed using dot notation, such as HTTPServer.address.
 
 By contrast, the from form imports only specific items directly into the current namespace. For example:
 from HTTPServer import address
@@ -50,6 +75,7 @@ What is __name__?
 Every Python file (script or module) gets a built-in variable named __name__.
 If the file is being imported, __name__ is set to the module’s name (e.g., "WebSearch").
 If the file is being run directly, __name__ is set to "__main__".
+
 Using __name__ in Your Code
 You can use an if statement to check whether a file is being run directly or imported:
 if __name__ == "__main__":
@@ -83,7 +109,8 @@ It keeps your files flexible: they can act as standalone scripts or as reusable 
 """
 
 Reloading Modules
-Normally, when you import a module, Python executes it only once. If you later change the module’s source code, those changes won’t take effect in the current Python session unless you restart the program.
+Normally, when you import a module, Python executes it only once. 
+If you later change the module’s source code, those changes won’t take effect in the current Python session unless you restart the program.
 To avoid restarting, you can use the reload() function from the importlib standard library. This re-executes the module’s code and updates its definitions in place.
 from importlib import reload
 import send_gmail
@@ -121,6 +148,7 @@ Python searches for packages in the directories listed in sys.path, just like it
 
 Example Directory Structure
 draw_scene.py          # Script that imports ASCIIArt package
+
 ASCIIArt/              # Top-level package
     __init__.py
     canvas.py
@@ -160,7 +188,6 @@ With from x.y import z, the last item can also be a name defined inside y (like 
 Why Packages Matter
 Packages help organize large projects and avoid naming conflicts. For example:
 ASCIIArt.canvas and 3DGraphics.canvas are two different modules, even though they share the same filename.
-But if you use from ... import ..., be careful: you might accidentally overwrite one canvas with another that has the same name.
 Packages are Python’s way of grouping related modules into clean, organized namespaces, keeping big projects manageable.
 
 """
@@ -186,3 +213,4 @@ sys	            System-specific environment or configuration helper functions	  
 pdb	            The Python interactive debugger	                                                            https://docs.python.org/3/library/pdb.html
 urllib	        URL handling functions, such as requesting web pages	                                    https://docs.python.org/3/library/urllib.html
 """
+
