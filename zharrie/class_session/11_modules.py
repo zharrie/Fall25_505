@@ -148,6 +148,7 @@ Python searches for packages in the directories listed in sys.path, just like it
 
 Example Directory Structure
 draw_scene.py          # Script that imports ASCIIArt package
+
 ASCIIArt/              # Top-level package
     __init__.py
     canvas.py
@@ -212,3 +213,4 @@ sys	            System-specific environment or configuration helper functions	  
 pdb	            The Python interactive debugger	                                                            https://docs.python.org/3/library/pdb.html
 urllib	        URL handling functions, such as requesting web pages	                                    https://docs.python.org/3/library/urllib.html
 """
+
