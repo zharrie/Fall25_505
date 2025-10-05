@@ -23,10 +23,12 @@ def get_max_int(nums)
 
 Note: get_max_int() returns the maximum value in the list."""
 
-def get_max_int(nums)
-    num_list []
+def get_max_int(nums):
     nums = int(input())
-    num_list.append(nums)
-
-    
+    num_list = []
+    num_list = num_list.append(nums)
+    num_list = num_list.sorted()
+    max_num = num_list[-1]
+    return max_num
+# for loop: for nums in num_list, if statement : if nums < 0: break loop
     
