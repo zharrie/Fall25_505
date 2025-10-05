@@ -1,4 +1,4 @@
-# # Lab: Divide Input Integers 
+s# # Lab: Divide Input Integers 
 user_num=int(input())
 div_num=int(input())
 
