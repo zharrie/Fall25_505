@@ -631,7 +631,7 @@ print(f"New limit: {sys.getrecursionlimit()}")  # 2000
 # Now we can go deeper
 result = count_calls(1500)
 print(f"Successfully made {result} calls")
-#Warning: Setting the limit too high can crash your program or even your system if you accidentally create infinite recursion!
+ Warning: Setting the limit too high can crash your program or even your system if you accidentally create infinite recursion!
 """
 8.7 Better Solution: Use Iteration
 
