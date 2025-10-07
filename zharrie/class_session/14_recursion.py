@@ -1,14 +1,4 @@
 """
-What is Recursion?
-How Recursion Works: Understanding Namespaces
-Recursive Algorithms Explained
-Binary Search: A Classic Example
-Creating Recursive Functions
-Debugging Recursive Functions
-Mathematical Applications
-Recursion Depth and Limits
-Best Practices and Common Pitfalls
-
 Recursion occurs when a function calls itself to solve a problem. 
 A function that calls itself is known as a recursive function.
 
@@ -43,7 +33,7 @@ print("GO!")
 """
 How Recursion Works: Understanding Namespaces
 
-2.1 The Call Stack and Namespaces
+The Call Stack and Namespaces
 
 Every time a function is called, Python creates a new namespace (a separate memory space) for that function's local variables. 
 This is crucial to understanding how recursion works.
@@ -61,7 +51,7 @@ def count_down(count):
 
 count_down(2)
 """
-2.2 Step-by-Step Execution
+Step-by-Step Execution
 
 Step 1: First call to count_down(2)
 
@@ -124,10 +114,9 @@ Step 3: Add water
 Step 4: Stir
 Each step is distinct and executed once in order.
 
-3.3 Example: Recursive Algorithm
+Example: Recursive Algorithm
 
 Mowing the Lawn:
-
 
 Mow the lawn:
     ├─ Mow the front yard
@@ -136,23 +125,22 @@ Mow the lawn:
     └─ Mow the backyard
         ├─ Mow the left back
         └─ Mow the right back
-Notice how "mowing the lawn" is defined in terms of smaller "mowing" tasks. The algorithm calls itself on smaller regions—this is recursive thinking!
+Notice how "mowing the lawn" is defined in terms of smaller "mowing" tasks. 
+The algorithm calls itself on smaller regions—this is recursive thinking!
 
-3.4 Real-World Example: The Number Guessing Game
+Real-World Example: The Number Guessing Game
 
-Problem: Your friend thinks of a number between 0 and 100. You need to guess it, and they'll tell you "higher" or "lower" after each guess. How can you minimize the number of guesses?
+Problem: Your friend thinks of a number between 0 and 100. 
+You need to guess it, and they'll tell you "higher" or "lower" after each guess. 
+How can you minimize the number of guesses?
 
 Strategy 1: Linear Search (Inefficient)
-
-
 Guess 0? Higher
 Guess 1? Higher
 Guess 2? Higher
 ...
 Average guesses needed: 50
 Strategy 2: Guess by Tens (Better)
-
-
 Guess 10? Higher
 Guess 20? Higher
 Guess 30? Lower
@@ -160,30 +148,28 @@ Guess 21? Higher
 Guess 22? Higher
 Guess 23? Correct!
 Average guesses needed: ~10
+
 Strategy 3: Binary Search (Optimal)
-
-
 Range: 0-100, Guess 50? Lower
 Range: 0-50,  Guess 25? Higher
 Range: 26-50, Guess 38? Lower
 Range: 26-38, Guess 32? Higher
 Range: 33-38, Guess 35? ...
 Average guesses needed: ~7
-Key Insight: After each guess, we apply the same algorithm (binary search) to a smaller range. This is perfect for recursion!
+Key Insight: After each guess, we apply the same algorithm (binary search) to a smaller range. 
+This is perfect for recursion!
 
-4. Binary Search: A Classic Example
+Binary Search: A Classic Example
 
-4.1 The Binary Search Algorithm
-
+The Binary Search Algorithm
 Binary search repeatedly divides the search space in half:
-
 Guess the midpoint of the range
 If correct, done!
 If the answer is lower, search the lower half
 If the answer is higher, search the upper half
 Repeat (recursion!)
-4.2 Implementing Binary Search Recursively
 
+Implementing Binary Search Recursively
 Let's implement a function to search for an item in a sorted list:
 """
 
@@ -231,17 +217,14 @@ else:
     return recursive_call(smaller_problem)  # Continue recursion
 
 """    
-4.4 How Binary Search Reduces the Problem
+How Binary Search Reduces the Problem
 
 Let's trace searching for "Diana" in our list:
-
-
 Step 1: Search ["Alice", "Bob", "Charlie", "Diana", "Eve", "Frank", "Grace"]
         low=0, high=6, mid=3
         names[3] = "Diana" ✓ Found!
+
 Let's trace searching for "Frank":
-
-
 Step 1: Search ["Alice", "Bob", "Charlie", "Diana", "Eve", "Frank", "Grace"]
         low=0, high=6, mid=3
         names[3] = "Diana" < "Frank"
@@ -252,41 +235,31 @@ Step 2: Search ["Eve", "Frank", "Grace"]
         names[5] = "Frank" ✓ Found!
 Key Point: Each step reduces the problem to a smaller, identical problem—perfect for recursion!
 
-4.5 Recursion vs. Iteration
-
-Important: Any recursive solution can be rewritten using loops. However, recursion can make some solutions clearer and more understandable.
+Recursion vs. Iteration
+Important: Any recursive solution can be rewritten using loops. 
+However, recursion can make some solutions clearer and more understandable.
 
 When to use recursion:
-
 The problem naturally divides into smaller, identical subproblems
 The recursive solution is more intuitive than the iterative one
 You're working with tree-like data structures
-When to use loops:
 
+When to use loops:
 Simple sequential processing
 When performance is critical (loops are generally faster)
 When the iterative solution is just as clear
 Note: Python programmers often prefer iterative solutions for simple problems. For finding an item in a list, you'd typically use:
 
-# More Pythonic approaches
-index = names.index("Diana")  # Built-in method
-found = "Diana" in names       # Membership test
 Recursion truly shines with complex data structures like trees and graphs!
 
-5. Creating Recursive Functions
-
-5.1 The Two-Step Process
+Creating Recursive Functions
+The Two-Step Process
 
 Creating a recursive function follows a simple pattern:
-
 Step 1: Write the base case (when to stop recursing)
 Step 2: Write the recursive case (how to break down the problem)
-
-5.2 Example: Factorial
-Step 1: Write the Base Case
-
 """
-
+# Example: Factorial
 def factorial(n):
     """Calculate n! (n factorial)"""
     # Base case: 1! = 1 or 0! = 1
@@ -343,8 +316,8 @@ def factorial_iterative(n):
 
 print(factorial_iterative(5))  # 120
 """
-5.5 When to Use Recursion
-Why show factorial then? It's an excellent teaching example because:
+When to Use Recursion
+It's an excellent teaching example because:
 
 The mathematical definition is recursive
 It's simple enough to understand easily
@@ -357,7 +330,7 @@ Binary search
 Divide-and-conquer algorithms
 Data structures of unknown depth
 
-6. Debugging Recursive Functions
+Debugging Recursive Functions
 Recursive functions can be challenging to debug because:
 
 Multiple function calls are "stacked" on top of each other
@@ -365,11 +338,8 @@ It's hard to visualize what's happening at each level
 Tracking values across different namespaces is confusing
 
 Debugging Technique: Indented Print Statements
-
 A powerful debugging trick is to add print statements that indent based on recursion depth:
 """
-
-
 def find_debug(names, target, low, high, indent=""):
     """Binary search with debug output"""
     # Print what we're searching
@@ -444,7 +414,7 @@ def find(names, target, low, high, indent=""):
 
 Mathematical Applications
 
-7.1 The Fibonacci Sequence
+The Fibonacci Sequence
 
 The Fibonacci sequence is a famous mathematical sequence where each number is the sum of the two preceding ones:
 
@@ -481,15 +451,11 @@ F(7) = 13
 F(8) = 21
 F(9) = 34
 
-7.4 Greatest Common Divisor (GCD)
+Greatest Common Divisor (GCD)
 
 The GCD is the largest number that divides evenly into two numbers.
 
 Example: GCD(12, 8) = 4 (because 4 is the largest number that divides both 12 and 8)
-
-Euclid's Algorithm (circa 300 BC)
-
-The algorithm repeatedly subtracts the smaller number from the larger until they're equal:
 
 GCD(12, 8)
 = GCD(12 - 8, 8)
@@ -497,9 +463,8 @@ GCD(12, 8)
 = GCD(4, 8 - 4)
 = GCD(4, 4)
 = 4 ✓
-7.5 Recursive GCD Implementation
 """
-
+# Recursive GCD Implementation
 def gcd(a, b):
     """
     Calculate greatest common divisor using Euclid's algorithm
@@ -522,8 +487,6 @@ print(f"GCD(48, 18) = {gcd(48, 18)}")   # 6
 print(f"GCD(100, 35) = {gcd(100, 35)}") # 5
 """
 Output:
-7.6 Tracing GCD Execution
-
 Let's trace gcd(12, 8):
 
 
@@ -535,43 +498,26 @@ gcd(12, 8)
            │
            └─ gcd(4, 4)
                   └─ 4 == 4, return 4 ✓
-7.7 More Efficient GCD (Using Modulo)
-
-The subtraction method works, but we can make it faster using the modulo operator:
 
 """
-
-def gcd_efficient(a, b):
-    """GCD using modulo (much faster)"""
-    # Base case
-    if b == 0:
-        return a
-    
-    # Recursive case
-    return gcd_efficient(b, a % b)
-
-print(f"GCD(48, 18) = {gcd_efficient(48, 18)}")  # 6
 
 """
 Recursion Depth and Limits
 
-8.1 What is Recursion Depth?
+What is Recursion Depth?
 
 Recursion depth is the number of recursive function calls that have been made but haven't yet returned.
 
 Think of it as how many functions are "stacked up" waiting to complete.
 
-8.2 Why There's a Limit
-
+Why There's a Limit
 Each recursive call uses memory to store:
-
 Local variables
 Parameters
 Return address
 If recursion goes too deep, you could run out of memory and crash the system!
 
-8.3 Python's Recursion Limit
-
+Python's Recursion Limit
 Python has a built-in safety limit to prevent infinite recursion:
 """
 
@@ -616,11 +562,13 @@ except RecursionError as e:
 """    
 Output:
 Hit recursion limit!
-8.6 Changing the Recursion Limit
+"""
+
+"""
+Changing the Recursion Limit
 
 You can change the limit, but be careful!
 """
-
 import sys
 
 # Increase limit (use with caution!)
@@ -631,10 +579,10 @@ print(f"New limit: {sys.getrecursionlimit()}")  # 2000
 # Now we can go deeper
 result = count_calls(1500)
 print(f"Successfully made {result} calls")
- Warning: Setting the limit too high can crash your program or even your system if you accidentally create infinite recursion!
-"""
-8.7 Better Solution: Use Iteration
+#Warning: Setting the limit too high can crash your program or even your system if you accidentally create infinite recursion!
 
+"""
+Better Solution: Use Iteration
 For problems that require deep recursion, consider using iteration instead:
 """
 
@@ -656,15 +604,13 @@ print(sum_to_n_iterative(10000))  # 50005000
 
 # This would exceed recursion limit
 # print(sum_to_n_recursive(10000))  # RecursionError!
-"""
-9. Best Practices and Common Pitfalls
 
-9.1 Before Writing a Recursive Function
+"""
+Best Practices and Common Pitfalls
+Before Writing a Recursive Function
 
 Ask yourself two key questions:
-
 Question 1: Does this problem have a naturally recursive solution?
-
 Examples of naturally recursive problems:
 
 Binary search (divide range in half)
@@ -678,7 +624,6 @@ Basic arithmetic operations
 Linear array processing
 
 Question 2: Is the recursive solution better than a non-recursive one?
-
 Recursion is better when:
 It makes the code significantly clearer
 The problem is inherently recursive (like trees)
@@ -688,37 +633,9 @@ Iteration is better when:
 The loop version is just as clear
 Performance is critical
 Recursion depth could be very large
-9.2 Example Comparison
-
-Problem: Calculate 
-This has no natural recursive solution. Just use direct computation:
 """
 
-def energy(mass, speed_of_light):
-    return mass * speed_of_light * speed_of_light
-"""
-Problem: Factorial (
-n
-!
-n!)
-
-Has a recursive definition, but a loop is simpler:
-"""
-
-# Recursive (demonstrates the concept)
-def factorial_recursive(n):
-    if n <= 1:
-        return 1
-    return n * factorial_recursive(n - 1)
-
-# Iterative (better in practice)
-def factorial_iterative(n):
-    result = 1
-    for i in range(n, 0, -1):
-        result *= i
-    return result
-
-# 9.3 Common Errors to Avoid
+# Common Errors to Avoid
 
 #Error 1: Missing Base Case
 # ❌ WRONG: No base case!
