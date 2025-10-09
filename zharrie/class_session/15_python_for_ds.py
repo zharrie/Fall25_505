@@ -1,18 +1,15 @@
 """
-Understand what data science is and how it's applied
-Navigate the complete data science life cycle
-Work with Python's most popular data science packages
-Create and manipulate datasets
-Build visualizations to communicate your findings
-Part 1: Understanding Data Science
+Understanding Data Science
 
 What is Data Science?
-
-Let's start with the basics. Data science is an interdisciplinary field where you'll discover patterns and describe relationships using data. You'll combine techniques from computer science and statistics, writing code to store, modify, and visualize large datasets.
+Let's start with the basics. 
+Data science is an interdisciplinary field where you'll discover patterns and describe relationships using data. 
+You'll combine techniques from computer science and statistics, writing code to store, modify, and visualize large datasets.
 
 As a data scientist, you'll also build, test, and interpret data models—representations of real-life systems that organize data elements and show how they relate to one another.
 
-Example: Think of the FBI's Most Wanted list. This model contains data elements like eye color, hair color, and known accomplices for each suspect. 
+Example: Think of the FBI's Most Wanted list. 
+This model contains data elements like eye color, hair color, and known accomplices for each suspect. 
 You can use this data model to make predictions about new data.
 
 Understanding Datasets
@@ -21,30 +18,34 @@ You'll work extensively with datasets—collections of information that consist 
 Key terminology you need to know:
 Feature (or variable): A characteristic that can be measured or observed. Features are organized in columns.
 Instance (or observational unit): Individual data points or observations. Instances are organized in rows.
-Working with Big Data
 
+Working with Big Data
 Over the last 20 years, data science has exploded due to big data—datasets with:
-Large volume (massive amounts of data)
-High velocity (created and updated quickly)
-Wide variety (different structures and formats)
+- Large volume (massive amounts of data)
+- High velocity (created and updated quickly)
+- Wide variety (different structures and formats)
+
 Volume: Managing Large Datasets
 
 You'll use specialized tools to handle very large amounts of data:
-Apache Spark and Hadoop: Open-source platforms for storing and analyzing large datasets
-Cloudera: Software for cloud-based data storage and management
-Cloud-based storage: Amazon Web Services, Google Cloud, or Microsoft Azure spread datasets across different locations, loading only what you need when you need it
+- Apache Spark and Hadoop: Open-source platforms for storing and analyzing large datasets
+- Cloudera: Software for cloud-based data storage and management
+- Cloud-based storage: Amazon Web Services, Google Cloud, or Microsoft Azure spread datasets across different locations, loading only what you need when you need it
+
 Velocity: Keeping Up with Changing Data
 
 Learn these techniques to work with continuously updating datasets:
-Write reproducible code: Your analyses can be updated and quickly re-run, unlike Excel-based analyses
-Automate your analyses: Schedule your code to run at specific times (like once per week)
-Use version control: Ensure that new software versions don't break your analysis
-Variety: Handling Different Data Types
+- Write reproducible code: Your analyses can be updated and quickly re-run, unlike Excel-based analyses
+- Automate your analyses: Schedule your code to run at specific times (like once per week)
+- Use version control: Ensure that new software versions don't break your analysis
 
-You'll encounter data in many forms: tables, spreadsheets, images, videos, sound, text, and more. This tutorial will teach you techniques from statistics, computer science, machine learning, and artificial intelligence to handle this variety.
+Variety: Handling Different Data Types
+You'll encounter data in many forms: tables, spreadsheets, images, videos, sound, text, and more. 
+During this session we will review techniques from statistics, computer science, machine learning, and artificial intelligence to handle this variety.
 
 The Data Science Life Cycle
-Now let's walk through the five-step process you'll follow for every data science project. You may revisit these steps multiple times during a single project.
+Now let's walk through the five-step process you'll follow for every data science project. 
+You may revisit these steps multiple times during a single project.
 
 Step 1: Gathering Data
 What you'll do: Identify available and relevant data, then gather new data if needed.
@@ -60,39 +61,39 @@ You may work with both types during a single project.
 Step 2: Cleaning Data
 What you'll do: Reformat datasets, create new features, and address missing values.
 Most software requires datasets to be structured as tables with features in columns and instances in rows. You'll:
-Combine data from multiple sources
-Ensure proper formatting
-Examine datasets for missing values or errors
-Calculate new features based on available data
+- Combine data from multiple sources
+- Ensure proper formatting
+- Examine datasets for missing values or errors
+- Calculate new features based on available data
 
 Step 3: Exploring Data
 What you'll do: Create data visualizations and calculate summary statistics to explore potential relationships.
 During exploratory data analysis, you'll use plots and graphs to:
-Recognize patterns or trends
-Identify unusual observations
-Brainstorm appropriate models
-Calculate summary statistics like mean and median
+- Recognize patterns or trends
+- Identify unusual observations
+- Brainstorm appropriate models
+- Calculate summary statistics like mean and median
 
 Step 4: Modeling Data
 What you'll do: Use modeling skills and content knowledge to fit and evaluate models, measure relationships, and make predictions.
 You'll select from different model types:
-Supervised models (predict features with known values):
-Classification models: Predict categorical features
-Regression models: Predict numerical features
-Unsupervised models: Look for hidden groups or patterns without predicting a known feature
+- Supervised models (predict features with known values):
+- Classification models: Predict categorical features
+- Regression models: Predict numerical features
+- Unsupervised models: Look for hidden groups or patterns without predicting a known feature
 
 Remember: No model is ideal for every situation, so you'll try several before making your selection.
 
 Step 5: Interpreting Data
 What you'll do: Describe and interpret conclusions through written reports and presentations.
 Communication is essential! You'll learn to:
-Interpret model results effectively
-Communicate findings to both technical and non-technical audiences
-Adapt models for changing circumstances or new data
+- Interpret model results effectively
+- Communicate findings to both technical and non-technical audiences
+- Adapt models for changing circumstances or new data
 
-Part 3: Introduction to Python for Data Science
+Introduction to Python for Data Science
 Why Python?
-Python is one of the most popular languages for data science. Here's why you'll be learning it:
+Python is one of the most popular languages for data science. Here's why:
 
 Advantages:
 Readability: Python reads like English with consistent syntax
@@ -103,8 +104,8 @@ Disadvantages to be aware of:
 Consistency: Different libraries may have different syntax conventions
 Memory: Uses more computer memory than some other languages
 Speed: Some languages like Julia perform computations faster
-Essential Python Packages You'll Use
 
+Essential Python Packages You'll Use
 You'll work with these packages:
 
 Package	            Alias	    What You'll Use It For
@@ -116,11 +117,12 @@ seaborn	            sns	        Creating statistical visualizations with DataFra
 scipy.stats	        sp.stats	Statistical computing
 statsmodels	        sm	        Estimating and analyzing statistical models
 
-Pro tip: Different packages provide different functionality, so you'll use multiple packages in every project. For example, you might load data with pandas, run classification algorithms with scikit-learn, then visualize results with seaborn.
+Pro tip: Different packages provide different functionality, so you'll use multiple packages in every project. 
+For example, you might load data with pandas, run classification algorithms with scikit-learn, then visualize results with seaborn.
 
-Part 4: Getting Started with Jupyter Notebooks
-What is Jupyter?
-Jupyter is your interactive development environment (IDE) for writing and testing data science code. You'll write code in Jupyter notebooks—interactive documents that organize code, text, and output all in one place.
+Getting Started with Jupyter Notebooks
+Jupyter is your interactive development environment (IDE) for writing and testing data science code. 
+You'll write code in Jupyter notebooks—interactive documents that organize code, text, and output all in one place.
 
 Understanding Cells
 Notebooks contain three types of cells:
@@ -130,14 +132,13 @@ Raw cells: For output
 Each cell can be run independently, making it easy to test and debug your code.
 
 Using the Sample Notebooks
-
 You can:
 Modify them to test new parameter values
 Try different modeling functions
 Download them using "File" > "Download as" to save your progress
 For installation instructions, visit the Jupyter installation guide.
 
-Part 5: Working with NumPy
+Working with NumPy
 What is NumPy?
 NumPy (pronounced "Num-pie") provides tools for mathematical computations in Python. You'll use it for:
 Linear algebra operations
@@ -171,9 +172,13 @@ Create an array using the array() function:
 
 # Create a 1D array from a list
 array1D = np.array([1, 2, 3, 4])
+array1D.shape  # Returns (4,)
+array1D.size   # Returns 4
 
 # Create a 2D array from nested lists
 array2D = np.array([[1, 2], [3, 4]])
+array2D.shape  # Returns (2, 2)
+array2D.size   # Returns 4
 
 """
 Understanding Array Axes
@@ -189,12 +194,15 @@ When you don't know the values yet, create placeholder arrays:
 """
 # Create a (1, 3) array filled with zeros
 zeros_array = np.zeros((1, 3))
+print(zeros_array) # Output: [[0. 0. 0.]]
 
 # Create a (1, 3) array filled with ones
 ones_array = np.ones((1, 3))
+print(ones_array) # Output: [[1. 1. 1.]]
 
 # Create a (2, 2) array filled with 6s
 sixes_array = np.full((2, 2), 6)
+print(sixes_array) # Output: [[6,6], [6,6]]
 
 """
 Essential Array Operations
@@ -260,7 +268,8 @@ np.matmul(array1, array2)	        Matrix multiplication
 np.cross(array1, array2)	        Cross product
 
 What is pandas?
-pandas is your go-to Python package for storing and manipulating 2-dimensional datasets. Built on top of NumPy, pandas uses DataFrames to represent datasets in a table format.
+pandas is your go-to Python package for storing and manipulating 2-dimensional datasets. 
+Built on top of NumPy, pandas uses DataFrames to represent datasets in a table format.
 Installation: Visit https://pandas.pydata.org/docs/getting_started/install.html
 Import pandas like this:
 """
@@ -295,7 +304,9 @@ Differences:
 DataFrames are always 2D; arrays can have any number of dimensions
 DataFrame columns can have different types; arrays must have one type
 DataFrame labels can be strings; array indices are integers only
-Why use DataFrames? Since datasets typically have named features with different types, DataFrames are usually better than NumPy arrays for data science work.
+
+Why use DataFrames? 
+Since datasets typically have named features with different types, DataFrames are usually better than NumPy arrays for data science work.
 
 Subsetting Data
 Learn to select specific rows and columns from your DataFrame.
@@ -394,9 +405,9 @@ df.sort_values(by="Population", ascending=False, inplace=False)
 Pro tip: Use inplace=True to modify the DataFrame directly, or inplace=False to create a new DataFrame with the changes.
 
 Creating Visualizations with Matplotlib
-
 What is Matplotlib?
-Matplotlib is Python's most common data visualization package. You'll use it to create static, dynamic, and interactive plots that help you gain insights and communicate findings.
+Matplotlib is Python's most common data visualization package. 
+You'll use it to create static, dynamic, and interactive plots that help you gain insights and communicate findings.
 
 Why Matplotlib?
 Versatility: Works in scripts, shells, iPython, and Jupyter Notebooks
@@ -450,13 +461,6 @@ plt.title("Alcohol-related fatalities on highways")
 plt.xlabel("Year")
 plt.ylabel("Number of fatalities")
 
-"""
-Adding Mathematical Expressions
-You can include LaTeX-formatted mathematical expressions:
-"""
-# Add a title with mathematical notation
-plt.title(r"Standard normal distribution $$f(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}$$")
-#Use the letter r before the string and enclose expressions in dollar signs.
 """
 Adding Text and Annotations
 """
