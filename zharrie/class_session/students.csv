@@ -1,0 +1,16 @@
+student_id,name,math_score,science_score,english_score,hours_studied,attendance_rate
+1,Alice Johnson,85,92,88,15,95
+2,Bob Smith,72,68,75,8,82
+3,Carol Davis,95,89,92,18,98
+4,David Brown,68,74,70,10,78
+5,Eva Martinez,88,85,90,14,92
+6,Frank Wilson,76,80,78,12,88
+7,Grace Lee,92,94,89,16,96
+8,Henry Taylor,65,70,68,7,75
+9,Iris Anderson,80,82,85,13,90
+10,Jack Thomas,78,76,80,11,85
+11,Kelly White,90,88,93,17,97
+12,Leo Harris,70,72,74,9,80
+13,Mia Clark,84,86,82,14,91
+14,Noah Lewis,77,79,81,12,87
+15,Olivia Walker,93,91,95,19,99

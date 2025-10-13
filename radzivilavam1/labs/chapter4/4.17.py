@@ -40,7 +40,7 @@ else:
         if penny_num == 1:
             print(f"{penny_num} Penny")
         else:
-            rint(f"{penny_num} Pennies")
+            print(f"{penny_num} Pennies")
     
 
 
