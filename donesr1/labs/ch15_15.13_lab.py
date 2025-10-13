@@ -1,38 +1,52 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Step 1: Read two CSV filenames
-file1 = input()
-file2 = input()
+# Step 1: Read CSV files with blank lines skipped
+july_df = pd.read_csv('july.csv', skip_blank_lines=True)
+december_df = pd.read_csv('december.csv', skip_blank_lines=True)
 
-# Step 2: Load CSV files into DataFrames
-df_july = pd.read_csv(file1)
-df_dec = pd.read_csv(file2)
+# Step 2: Clean column headers (strip whitespace)
+july_df.columns = july_df.columns.str.strip()
+december_df.columns = december_df.columns.str.strip()
 
-# Step 3: Print each DataFrame separately
-print(df_july)
-print(df_dec)
+# Step 3: Drop rows with any missing critical data to avoid misalignment
+july_df.dropna(subset=['Month', 'Year', 'Capacity', 'Gross Potential'], inplace=True)
+december_df.dropna(subset=['Month', 'Year', 'Capacity', 'Gross Potential'], inplace=True)
 
-# Step 4: Create subplots
-fig, axes = plt.subplots(1, 2, figsize=(12, 6))  # 1 row, 2 columns
+# Step 4: Convert columns to correct types (ints)
+for df in [july_df, december_df]:
+    df['Month'] = df['Month'].astype(int)
+    df['Year'] = df['Year'].astype(int)
+    df['Capacity'] = df['Capacity'].astype(int)
+    df['Gross Potential'] = df['Gross Potential'].astype(int)
 
-# July subplot (left)
-axes[0].scatter(df_july["Gross Potential"], df_july["Capacity"])
-axes[0].set_title("July 2002")
-axes[0].set_xlabel("Gross Potential")
-axes[0].set_ylabel("Capacity")
+# Step 5: Print dataframes
+print(july_df)
+print()
+print(december_df)
 
-# December subplot (right)
-axes[1].scatter(df_dec["Gross Potential"], df_dec["Capacity"])
-axes[1].set_title("December 2002")
-axes[1].set_xlabel("Gross Potential")
-axes[1].set_ylabel("Capacity")
+# Step 6: Extract month and year from the data (assuming all rows have the same)
+july_month = july_df['Month'].iloc[0]
+july_year = july_df['Year'].iloc[0]
 
-# Main title
-fig.suptitle("Capacity vs. Gross Potential")
+dec_month = december_df['Month'].iloc[0]
+dec_year = december_df['Year'].iloc[0]
 
-# Adjust layout
-plt.tight_layout(rect=[0, 0, 1, 0.95])  # leave space for suptitle
+# Step 7: Plotting the scatter plots side by side
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
 
-# Step 5: Save the figure
-plt.savefig(
+ax1.scatter(july_df['Gross Potential'], july_df['Capacity'], color='blue')
+ax1.set_title(f'{july_month} {july_year}')
+ax1.set_xlabel('Gross Potential')
+ax1.set_ylabel('Capacity')
+
+ax2.scatter(december_df['Gross Potential'], december_df['Capacity'], color='green')
+ax2.set_title(f'{dec_month} {dec_year}')
+ax2.set_xlabel('Gross Potential')
+ax2.set_ylabel('Capacity')
+
+fig.suptitle('Capacity vs. Gross Potential', fontsize=16)
+
+plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.savefig('subplots.png')
+plt.close()

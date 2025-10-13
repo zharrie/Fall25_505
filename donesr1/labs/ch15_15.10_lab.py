@@ -1,26 +1,20 @@
 import pandas as pd
 
-# Input the file name (only once)
-filename = input()
+# Step 1: Read the TSV file from user input
+file_name = input()
+df = pd.read_csv(file_name, sep='\t')
 
-# Read the .tsv file
-df = pd.read_csv(filename, sep='\t')
+# Step 2: Output students' names and grades in descending order of Final scores
+print(df.sort_values(by='Final', ascending=False).to_string())
 
-# Output rows by descending Final scores
-print(df.sort_values(by='Final', ascending=False))
+print("\nMax Scores:")
+print(df.max(numeric_only=True).to_string())
 
-# Output max scores
-print("Max Scores:")
-print(df.max(numeric_only=True))
+print("\nMedian Scores:")
+print(df.median(numeric_only=True).to_string())
 
-# Output median scores
-print("Median Scores:")
-print(df.median(numeric_only=True))
+print("\nAverage Scores:")
+print(df.mean(numeric_only=True).to_string())
 
-# Output average scores
-print("Average Scores:")
-print(df.mean(numeric_only=True))
-
-# Output standard deviation of scores
-print("Standard Deviation:")
-print(df.std(numeric_only=True))
+print("\nStandard Deviation:")
+print(df.std(numeric_only=True).to_string())
