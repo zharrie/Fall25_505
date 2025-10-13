@@ -1,0 +1,15 @@
+# This is a CODEOWNERS file for automatically assigning reviewers to PRs
+
+# These owners will be the default owners for everything in the repo
+* @zharrie
+
+# Student directories
+/donesr1/ @donesr1
+/pintod6/ @pintod6
+/radzivilavam1/ @radzivilavam1
+/rhulea1/ @rhulea1
+/shkembik1/ @shkembik1
+/villalobosy1/ @villalobosy1
+
+# Specific file types
+*.py @zharrie
