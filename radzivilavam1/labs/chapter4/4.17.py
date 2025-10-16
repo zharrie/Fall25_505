@@ -40,7 +40,11 @@ else:
         if penny_num == 1:
             print(f"{penny_num} Penny")
         else:
+<<<<<<< HEAD
             print(f"{penny_num} Pennies")
+=======
+            rint(f"{penny_num} Pennies")
+>>>>>>> 941bc21 (Final Project)
     
 
 

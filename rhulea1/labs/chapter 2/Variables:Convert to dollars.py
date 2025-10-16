@@ -1,0 +1,5 @@
+nickels_count = int(input())
+dimes_count = int(input())
+quarters_count = int(input())
+total_in_dollars = (nickels_count * 0.05) + (dimes_count * 0.10) + (quarters_count * 0.25)
+print(f"Amount: ${total_in_dollars:.2f}")

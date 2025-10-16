@@ -209,4 +209,8 @@ radzivilavam1/tests/test.py
 radzivilavam1/tests/home_tests.py
 radzivilavam1/tests/**
 radzivilavam1/class_session/file_input.py
+<<<<<<< HEAD
 radzivilavam1/class_session/test_file.txt
+=======
+radzivilavam1/class_session/test_file.txt
+>>>>>>> 941bc21 (Final Project)
