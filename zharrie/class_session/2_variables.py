@@ -1,0 +1,1 @@
+# This class section was asynchronous, so there is no recording.
