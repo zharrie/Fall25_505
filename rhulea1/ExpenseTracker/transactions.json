@@ -1,0 +1,16 @@
+[
+  {
+    "amount": 1000.0,
+    "date": "2025-10-16",
+    "category": "food",
+    "description": "lunch",
+    "type": "Income"
+  },
+  {
+    "amount": 1000.0,
+    "date": "2025-10-24",
+    "category": "salary",
+    "description": "Montclair State University October paycheck",
+    "type": "Income"
+  }
+]
