@@ -26,3 +26,4 @@ plt.legend()
 
 # Step 6: Save the figure
 plt.savefig("output_fig.png")
+
