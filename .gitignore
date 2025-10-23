@@ -209,4 +209,16 @@ radzivilavam1/tests/test.py
 radzivilavam1/tests/home_tests.py
 radzivilavam1/tests/**
 radzivilavam1/class_session/file_input.py
+<<<<<<< HEAD
 radzivilavam1/class_session/test_file.txt
+=======
+radzivilavam1/class_session/test_file.txt
+>>>>>>> 941bc21 (Final Project)
+.idea/Fall25_505.iml
+.idea/material_theme_project_new.xml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/.gitignore
+.gitignore
+.gitignore
