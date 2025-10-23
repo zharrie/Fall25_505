@@ -1,46 +1,56 @@
 class Plant:
+    def __init__(self, name, cost):
+        self.name = name
+        self.cost = int(cost)
 
-    def __init__(self, plant_name, plant_cost):
-        self.plant_name = plant_name
-        self.plant_cost = plant_cost
-
-    def print_info(self):
-        print(f"   Plant name: { self.plant_name }")
-        print(f"   Cost: { self.plant_cost }")
+    def print_info(self, index):
+        print(f"Plant {index} Information:")
+        print(f"   Plant name: {self.name}")
+        print(f"   Cost: {self.cost}")
 
 
 class Flower(Plant):
-
-    def __init__(self, plant_name, plant_cost, is_annual, color_of_flowers):
-        Plant.__init__(self, plant_name, plant_cost)
+    def __init__(self, name, cost, is_annual, color):
+        super().__init__(name, cost)
         self.is_annual = is_annual
-        self.color_of_flowers = color_of_flowers
+        self.color = color
 
-    def print_info(self):
-        print(f"   Plant name: { self.plant_name }")
-        print(f"   Cost: { self.plant_cost }")
-        print(f"   Annual: { self.is_annual }")
-        print(f"   Color of flowers: { self.color_of_flowers }")
-
-
-# TODO:  Define the print_list() function that prints a list of plant (or flower) objects
-    def plant_list(my_garden):
-        for plant in garden:
-            plant.print_info()
+    def print_info(self, index):
+        print(f"Plant {index} Information:")
+        print(f"   Plant name: {self.name}")
+        print(f"   Cost: {self.cost}")
+        print(f"   Annual: {self.is_annual}")
+        print(f"   Color of flowers: {self.color}")
 
 
-if __name__ == "__main__":
+def print_list(plants):
+    for i, plant in enumerate(plants, start=1):
+        plant.print_info(i)
+        print()  # Print a newline between plant entries
 
-    # TODO: Declare a list called my_garden that can hold object of type plant
+
+def main():
     my_garden = []
 
-    user_string = input()
+    while True:
+        line = input()
+        if line == "-1":
+            break
 
-    while user_string != "-1":
-        if tokens[0] == "plant" and len(tokens) == 3:
-            _, plant_name, plant_cost = tokens
-            plant = Plant(plant_name, plant_cost)
-            my_garden.append(plant)
-        user_string = input()
+        parts = line.split()
+        if not parts:
+            continue
+
+        if parts[0] == "plant":
+            _, name, cost = parts
+            my_garden.append(Plant(name, cost))
+        elif parts[0] == "flower":
+            _, name, cost, is_annual, color = parts
+            my_garden.append(Flower(name, cost, is_annual, color))
 
     print_list(my_garden)
+
+
+# Run the program
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,83 @@
+{
+    "songs": [
+        {
+            "title": "Love It If We Made It",
+            "artist": "The 1975",
+            "duration": 247,
+            "year": null,
+            "genre": null,
+            "play_count": 0
+        },
+        {
+            "title": "Somebody Else",
+            "artist": "The 1975",
+            "duration": 284,
+            "year": null,
+            "genre": null,
+            "play_count": 0
+        },
+        {
+            "title": "The Sound",
+            "artist": "The 1975",
+            "duration": 226,
+            "year": null,
+            "genre": null,
+            "play_count": 0
+        },
+        {
+            "title": "If You're Too Shy (Let Me Know)",
+            "artist": "The 1975",
+            "duration": 222,
+            "year": null,
+            "genre": null,
+            "play_count": 0
+        },
+        {
+            "title": "It's Not Living (If It's Not With You)",
+            "artist": "The 1975",
+            "duration": 242,
+            "year": null,
+            "genre": null,
+            "play_count": 0
+        }
+    ],
+    "albums": [
+        {
+            "title": "I like it when you Sleep",
+            "artist": "The 1975",
+            "year": null,
+            "genre": null,
+            "songs": [
+                "Somebody Else"
+            ]
+        },
+        {
+            "title": "Notes on a Conditional Form",
+            "artist": "The 1975",
+            "year": null,
+            "genre": null,
+            "songs": [
+                "If You're Too Shy (Let Me Know)"
+            ]
+        }
+    ],
+    "artists": [
+        {
+            "name": "The 1975",
+            "albums": [
+                "I like it when you Sleep",
+                "Notes on a Conditional Form"
+            ]
+        }
+    ],
+    "playlists": [
+        {
+            "name": "The 1975 Favorites",
+            "songs": [
+                "Love It If We Made It",
+                "If You're Too Shy (Let Me Know)",
+                "The Sound"
+            ]
+        }
+    ]
+}

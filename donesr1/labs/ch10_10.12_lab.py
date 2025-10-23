@@ -1,47 +1,51 @@
 # Define custom exception
 class StudentInfoError(Exception):
-
     def __init__(self, message):
-        self.message = message  # Initialize the exception message
-    def __str__(self):
-        return self.message  
+        self.message = message
 
-def find_ID(name, info):
-     if name in info:
-        return info[name]
+    def __str__(self):
+        return self.message
+
+
+def find_ID(name, student_dict):
+    if name in student_dict:
+        return student_dict[name]
     else:
-        raise StudentInfoError("Student name not found")
-    
-    
-def find_name(ID, info):
-     for name, student_id in info.items():
+        raise StudentInfoError(f"Student ID not found for {name}")
+
+
+def find_name(ID, student_dict):
+    for name, student_id in student_dict.items():
         if student_id == ID:
             return name
-    raise StudentInfoError("Student ID not found")
+    raise StudentInfoError(f"Student name not found for {ID}")
 
 
-if __name__ == "__main__":
-    # Dictionary of student names and IDs
-    student_info = {
-        "Reagan": "rebradshaw835",
-        "Ryley": "rbarber894",
-        "Peyton": "pstott885",
-        "Tyrese": "tmayo945",
-        "Caius": "ccharlton329",
+def main():
+    # Example student dictionary
+    student_dict = {
+        'Reagan': 'rebradshaw835',
+        'Ryley': 'rbarber894',
+        'Peyton': 'pstott885',
+        'Tyrese': 'tmayo945',
+        'Caius': 'ccharlton329'
     }
 
-    userChoice = (
-        input())  # Read search option from user. 0: find_ID(), 1: find_name()
+    # Input
+    choice = int(input())
+    key = input()
 
-    # FIXME: find_ID() and find_name() may raise an Exception.
-    #        Insert a try/except statement to catch the exception and output any exception message.
-      try:
-        if userChoice == "0":
-            name = input()
-            result = find_ID(name, student_info)
+    try:
+        if choice == 0:
+            result = find_ID(key, student_dict)
+        elif choice == 1:
+            result = find_name(key, student_dict)
         else:
-            ID = input()
-            result = find_name(ID, student_info)
+            result = "Invalid choice"
         print(result)
     except StudentInfoError as e:
         print(e)
+
+
+if __name__ == "__main__":
+    main()
